@@ -64,4 +64,6 @@
 
     <mvc:view-controller path="/cmmn/validator.do" view-name="egovframework/example/cmmn/validator"/>
     <mvc:view-controller path="/hello.do" view-name="study/hello.jsp"/>
+
+    <mvc:annotation-driven validator="validator"/>
 </beans>

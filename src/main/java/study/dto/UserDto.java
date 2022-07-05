@@ -1,21 +1,33 @@
 package study.dto;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
-import org.jetbrains.annotations.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.Size;
+
 
 public class UserDto implements Comparable<UserDto>{
 
+  @NotEmpty
+  @Size(min=1)
   private String name;
+
+  @Range(min=19, max = 60)
   private int age;
   private GENDER gender;
+
+  public UserDto() {
+  }
+
 
   public UserDto(String name, int age, GENDER gender) {
     this.name = name;
     this.age = age;
     this.gender = gender;
   }
+
 
   public String getName() {
     return name;
@@ -56,7 +68,7 @@ public class UserDto implements Comparable<UserDto>{
   }
 
   @Override
-  public int compareTo(@NotNull UserDto o) {
+  public int compareTo(UserDto o) {
     return ComparisonChain.start()
         .compare(this.age, o.age)
         .compare(this.name, o.name)

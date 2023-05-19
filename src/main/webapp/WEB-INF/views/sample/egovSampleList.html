@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>egovSample ThymeLeaf</title>
+</head>
+<body>
+
+<h2>egovSampleList by ThymeLeaf</h2>
+
+<table style="border: 1px solid black;padding: 1px">
+  <caption>egovSample ThymeLeaf
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>id</th>
+      <th>name</th>
+      <th>useYn</th>
+      <th>description</th>
+      <th>regUser</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="result, i: ${resultList}">
+      <td th:text="${i.index}"></td>
+      <td th:text="${result.id}"></td>
+      <td th:text="${result.name}"></td>
+      <td th:text="${result.useYn}"></td>
+      <td th:text="${result.description}"></td>
+      <td th:text="${result.regUser}"></td>
+    </tr>
+    </tbody>
+  </caption>
+</table>
+</body>
+</html>
